@@ -4,7 +4,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, COLOR_ORANGE, COLOR_WHITE
+from code.Const import WIN_WIDTH, COLOR_ORANGE, COLOR_WHITE, MENU_OPTION
 
 
 class Menu:
@@ -18,13 +18,11 @@ class Menu:
         pygame.mixer_music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(50, 'Mountain', (COLOR_WHITE), ((WIN_WIDTH / 2), 70))
-            self.menu_text(50, 'Shooter', (COLOR_WHITE), ((WIN_WIDTH / 2), 120))
-            self.menu_text(20, 'NEW GAME 1P', (COLOR_WHITE), ((WIN_WIDTH / 2), 200))
-            self.menu_text(20, 'NEW GAME 2P - COOPERATIVE', (COLOR_WHITE), ((WIN_WIDTH / 2), 225))
-            self.menu_text(20, 'NEW GAME 2P - COMPETITIVE', (COLOR_WHITE), ((WIN_WIDTH / 2), 250))
-            self.menu_text(20, 'SCORE', (COLOR_WHITE), ((WIN_WIDTH / 2), 275))
-            self.menu_text(20, 'EXIT', (COLOR_WHITE), ((WIN_WIDTH / 2), 300))
+            self.menu_text(50, 'Mountain', (COLOR_ORANGE), ((WIN_WIDTH / 2), 70))
+            self.menu_text(50, 'Shooter', (COLOR_ORANGE), ((WIN_WIDTH / 2), 120))
+
+            for i in range(len(MENU_OPTION)):
+                self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i))
 
 
 
